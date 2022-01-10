@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex"/>
+  <title>Ad-policy Page</title>
+  <script src="release/scripts/anvload.js"></script>
+</head>
+<body>
+  <div id="p0"></div>
+  <script>
+    AnvatoPlayer('p0').init({
+      width: "100%",
+      accessKey:"kAx2zqa3gI9nYxGtzkSnO3Nzu6MNo9yX",
+      video:"4149700",
+      //maybe need to refresh token
+      token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ2aWQiOiI0MTQ5NzAwIiwiaXNzIjoia0F4MnpxYTNnSTluWXhHdHprU25PM056dTZNTm85eVgiLCJleHAiOjFlKzMwLCJpYXQiOjE2NDE0ODY0MzJ9.3PwRON5QENmQn0G2pOYA7EcWazDr3RzK7ywp0Eq94I0",
+      mcp:"sni",
+       // * - Skip ad breaks if it has been less than GRACE_PERIOD seconds since the user last
+       //  *   finished watching an ad break.
+      gracePeriodDur: 90,
+      autoplay: true,
+      // plugins:{
+      //   freewheel:{
+      //     serverSide:{
+      //       networkId:191701,
+      //       serverURL:"http://2ecd5.v.fwmrm.net",
+      //       profileId:"scripps_ott_html5_live",
+      //       siteSectionId:"diy-tveapp-Cablevision",
+      //       videoAssetId:"0259613-tve"
+      //     }
+      //   }
+      // },
+    })
+  </script>
+</body>
+</html>

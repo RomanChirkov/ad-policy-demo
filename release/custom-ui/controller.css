@@ -1,0 +1,680 @@
+@media only screen and (max-width: 700px) {
+  anvato-controller .color-button-shape {
+    border: 0.286vw solid rgb(160, 160, 160);
+    left: -0.286vw;
+    width: 5.7vw;
+    padding-top: 5.7vw;
+  }
+
+  anvato-controller select {
+    font-size: 2.29vw;
+  }
+
+  anvato-controller .major-text {
+    font-size: 2vw;
+  }
+
+  anvato-controller .second-level-text {
+    font-size: 1.7vw;
+  }
+
+  anvato-controller .preset-button-shape {
+    border: 0.5vw solid rgb(160, 160, 160);
+    left: -0.5vw;
+    font-size: 4.29vw;
+  }
+
+  anvato-controller .preset-button-shape:not([disabled]):hover {
+    border: 0.5vw solid rgb(0, 178, 236);
+    left: -0.5vw;
+  }
+
+  anvato-controller .color-button-shape-upper {
+    border-width: 0.286vw;
+    left: -0.286vw;
+    width: 6.4vw;
+    padding-top: 6.4vw;
+    font-size: 3.4vw;
+  }
+}
+
+@media only screen and (min-width: 700px) {
+  anvato-controller .color-button-shape {
+    border: 2px solid rgb(160, 160, 160);
+    left: -2px;
+    width: 40px;
+    padding-top: 40px;
+  }
+
+  anvato-controller select {
+    font-size: 16px;
+  }
+
+  anvato-controller .major-text {
+    font-size: 14px;
+  }
+
+  anvato-controller .second-level-text {
+    font-size: 12px;
+  }
+
+  anvato-controller .preset-button-shape {
+    border: 3.5px solid rgb(160, 160, 160);
+    left: -3.5px;
+    font-size: 30px;
+  }
+
+  anvato-controller .preset-button-shape:not([disabled]):hover {
+    border: 3.5px solid rgb(0, 178, 236);
+    left: -3.5px;
+  }
+
+  anvato-controller .color-button-shape-upper {
+    border-width: 2px;
+    left: -2px;
+    width: 45px;
+    padding-top: 45px;
+    font-size: 25px;
+  }
+}
+
+anvato-controller {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-family: Arial, sans-serif;
+  transition: opacity 0.25s;
+
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+anvato-controller input[type="text"] {
+  resize: none;
+  height: 25px;
+  font-size: 14px;
+  background: rgb(240, 238, 240);
+  border: 1px solid #ccc;
+  font-family: Arial, sans-serif;
+  border-radius: 3px;
+}
+
+anvato-controller select {
+  background: #DDD;
+  width: 100%;
+  border: 1px solid #ccc;
+  height: 35%;
+  bottom: 30%;
+  left: 0;
+  position: absolute;
+  font-family: Arial, sans-serif;
+  border-radius: 3px;
+}
+
+anvato-controller a:visited {
+  color: rgb(0, 178, 236);
+}
+
+anvato-controller a {
+  color: rgb(0, 178, 236);
+  text-decoration: none;
+}
+
+anvato-controller .caption-preview {
+  text-align: center;
+  position: fixed;
+  left: 50%;
+  bottom: 3%;
+  transition: opacity 0.25s;
+  display: none;
+  opacity: 0;
+  padding: 3px;
+}
+
+anvato-controller .center-item {
+  transform: translate(-50%, -50%);
+}
+
+anvato-controller .plus-button {
+  border-bottom-left-radius: 4px;
+  border-top-left-radius: 4px;
+  left: 0;
+}
+
+anvato-controller .minus-button {
+  border-bottom-right-radius: 4px;
+  border-top-right-radius: 4px;
+  left: calc(25% + 2px);
+}
+
+anvato-controller .plus-minus-class {
+  background: #DDD;
+  width: 25%;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  height: 35%;
+  bottom: 30%;
+  position: absolute;
+  cursor: pointer;
+  color: rgb(160, 160, 160);
+}
+
+anvato-controller .plus-minus-class:hover {
+  color: rgb(0, 178, 236);
+  border: 1px solid rgb(0, 178, 236);
+}
+
+anvato-controller .menu-container {
+  color: white;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  background-color: rgba(30, 30, 30, 0.7);
+  transition: opacity 0.25s;
+  display: none;
+}
+
+anvato-controller .caption-popup {
+  width: 340px;
+  height: 100px;
+}
+
+anvato-controller .share-popup {
+  width: 100%;
+  height: 100%;
+}
+
+anvato-controller .share-popup-text {
+  width: 90%;
+  float: right;
+  transform: translate(0%, -50%);
+}
+
+anvato-controller .share-popup-input-holder {
+  top: 55%;
+  position: relative;
+  margin-bottom: 9%;
+  width: 90%;
+  left: 0;
+}
+
+anvato-controller .share-popup-textarea-span {
+  float: right;
+  transform: translate(0%, -50%);
+  width: 8%;
+  text-align: right;
+  margin-right: 2%;
+}
+
+anvato-controller .share-popup-button {
+  width: 23.3%;
+  height: 20px;
+  cursor: pointer;
+  position: relative;
+  float: left;
+  margin: 5%;
+}
+
+anvato-controller .share-popup-button-container {
+  width: 75%;
+  position: absolute;
+  left: 50%;
+  top: 35%;
+  transform: translate(-50%, -50%);
+}
+
+anvato-controller .share-popup-inner-container {
+  font-size: 12px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  width: 650px;
+  height: 600px;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+anvato-controller .vod-caption-popup {
+  transform: translate(-50%, -100%);
+  width: 200px;
+  height: 62px;
+  top: -5px;
+}
+
+anvato-controller .caption-options {
+  height: 390px;
+  width: 100%;
+  max-width: 700px;
+  max-height: 100%;
+}
+
+anvato-controller .popup-title {
+  position: absolute;
+  left: 50%;
+  width: 100%;
+  top: 25%;
+  font-size: 24px;
+}
+
+anvato-controller .vod-popup-title {
+  position: absolute;
+  left: 50%;
+  width: 100%;
+  top: 25%;
+  font-size: 13px;
+  cursor: default;
+}
+
+anvato-controller .caption-options-left-column {
+  box-sizing: border-box;
+  position: relative;
+  width: 30%;
+  height: 92%;
+  top: 4%;
+  padding: 3% 0% 3% 5%;
+  border-right: 1px solid rgba(255, 255, 255, 0.7);
+  float: left;
+}
+
+anvato-controller .major-text {
+  position: relative;
+  text-align: left;
+}
+
+anvato-controller .caption-options-middle-column {
+  box-sizing: border-box;
+  position: relative;
+  width: 26%;
+  height: 100%;
+  top: 4%;
+  padding: 3% 0% 3% 3%;
+  float: left;
+}
+
+anvato-controller .caption-options-right-column {
+  box-sizing: border-box;
+  position: relative;
+  width: 42%;
+  height: 92%;
+  top: 4%;
+  padding: 3% 0% 3% 3%;
+  float: left;
+}
+
+anvato-controller .caption-options-section {
+  width: 100%;
+  height: 16%;
+  position: relative;
+}
+
+anvato-controller #anvato-controller-caption-options-middle-column-title {
+  position: relative;
+  height: 12%;
+  text-align: left;
+}
+
+anvato-controller #anvato-controller-caption-options-right-column-title {
+  position: relative;
+  height: 12%;
+  text-align: left;
+}
+
+anvato-controller .second-level-text {
+  text-align: left;
+}
+
+anvato-controller .preset-button-shape {
+  float: left;
+  margin-right: 10%;
+  margin-bottom: 3%;
+  margin-top: 6%;
+  width: 30%;
+  height: auto;
+  padding-top: 30%;
+  background-color: rgba(30, 30, 30, 0.7);
+  border-radius: 50%;
+  border: 3.5px solid rgb(160, 160, 160);
+  position: relative;
+  cursor: pointer;
+}
+
+anvato-controller .preset-button-shape:not([disabled]):hover {
+  border: 3.5px solid rgb(0, 178, 236);
+}
+
+anvato-controller .lower-button-shape {
+  margin-right: 0%;
+  margin-left: 5%;
+  margin-bottom: 0%;
+  margin-top: 5%;
+  height: 4%;
+  width: 20%;
+  background-color: rgb(68, 68, 68);
+  border-radius: 4px;
+  position: absolute;
+  padding: 3%;
+  bottom: 2%;
+  right: 4%;
+  text-align: center;
+  cursor: pointer;
+}
+
+anvato-controller .lower-button-shape:not([disabled]):hover {
+  color: rgb(0, 178, 236);
+}
+
+anvato-controller .color-button-shape {
+  margin-right: 3%;
+  margin-bottom: 0%;
+  margin-top: 6%;
+  height: auto;
+  background-color: rgba(30, 30, 30, 0.7);
+  border-radius: 50%;
+  position: relative;
+  cursor: pointer;
+}
+
+anvato-controller .inner-button {
+  display: inline-block;
+  padding-right: 20px;
+  padding-left: 20px;
+  top: 65%;
+  position: relative;
+  cursor: pointer;
+}
+
+anvato-controller .vod-inner-button {
+  display: inline-block;
+  padding-right: 5px;
+  padding-left: 5px;
+  top: 40%;
+  position: relative;
+  cursor: pointer;
+}
+
+anvato-controller .volume-slider {
+  width: 10vw;
+  max-width: 75px;
+  height: 0;
+  max-height: 140px;
+  position: absolute;
+  background-color: rgba(30, 30, 30, 0.7);
+  left: 50%;
+  top: 100%;
+  margin-top: 5px;
+  transition: height 0.25s;
+  transform: translate(-50%, 0%);
+  cursor: default;
+  overflow: hidden;
+}
+
+anvato-controller .vod-button .volume-slider {
+  width: 50px;
+  top: 0;
+  margin-top: -5px;
+  transform: translate(-50%, -100%);
+}
+
+anvato-controller .volume-slider-line {
+  width: 2px;
+  height: 80%;
+  position: absolute;
+  left: 50%;
+  top: 10%;
+  background-color: rgba(160, 160, 160, 0.7);
+}
+
+anvato-controller .volume-slider-button {
+  width: 6vw;
+  max-width: 35px;
+  height: 5px;
+  position: absolute;
+  left: 50%;
+  top: 0%;
+  background-color: rgb(0, 178, 236);
+  cursor: pointer;
+}
+
+anvato-controller .vod-button .volume-slider-button {
+  width: 20px;
+  height: 3px;
+}
+
+anvato-controller .volume-slider-amount {
+  width: 100%;
+  height: 0;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background-color: #E5E5E5;
+}
+
+anvato-controller .volume-slider-button:before {
+  position: absolute;
+  content: '';
+  top: -10px;
+  right: -10px;
+  left: -10px;
+  bottom: -10px;
+  cursor: pointer;
+}
+
+anvato-controller .close-button {
+  width: 20px;
+  position: absolute;
+  right: 0px;
+  top: 20px;
+  cursor: pointer;
+}
+
+anvato-controller .close-button:hover path {
+  fill: rgb(0, 178, 236);
+}
+
+anvato-controller .close-button:hover ellipse {
+  stroke: rgb(0, 178, 236);
+}
+
+anvato-controller .inner-button-icon {
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  position: relative;
+  transform: translate(0%, 25%);
+}
+
+anvato-controller .inner-button-text {
+  display: inline-block;
+  font-size: 20px;
+}
+
+anvato-controller .vod-inner-button-text {
+  display: inline-block;
+  font-size: 11px;
+}
+
+anvato-controller .inner-button:hover {
+  color: rgb(0, 178, 236);
+}
+
+anvato-controller .button-container {
+  width: 200%;
+  left: -50%;
+  text-align: center;
+  top: 50%;
+  position: absolute;
+  transform: translate(0%, -100%);
+  display: none;
+}
+
+anvato-controller .vod-button-container {
+  box-sizing: border-box;
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 80%;
+  height: 31px;
+  background-color: rgba(30, 30, 30, 0.7);
+  border-radius: 2px;
+  left: 10%;
+  bottom: 5%;
+  position: absolute;
+  display: none;
+}
+
+anvato-controller .button {
+  width: 10vw;
+  max-width: 80px;
+  height: auto;
+  position: relative;
+  top: 50%;
+  margin-left: 10px;
+  transform: translate(0%, 50%);
+  display: inline-block;
+}
+
+anvato-controller .vod-button {
+  width: 31px;
+  height: 31px;
+  position: relative;
+  top: 50%;
+  margin-left: 5px;
+  margin-right: 5px;
+  float: left;
+  transform: translate(0%, -50%);
+  cursor: pointer;
+}
+
+anvato-controller .vod-time-bar {
+  height: 31px;
+  overflow: hidden;
+  padding-left: 1%;
+  padding-right: 1%;
+  cursor: pointer;
+}
+
+anvato-controller .vod-time-display {
+  font-size: 11px;
+  color: #FFF;
+  transform: translate(0%, -50%);
+  position: relative;
+  top: 50%;
+  margin-left: 10px;
+}
+
+anvato-controller .vod-time-bar-background {
+  height: 2px;
+  width: 100%;
+  transform: translate(0%, -50%);
+  top: 50%;
+  position: relative;
+  background-color: rgba(160, 160, 160, 0.7);
+}
+
+anvato-controller .vod-time-bar-current-time {
+  background-color: #E5E5E5;
+  height: 100%;
+  width: 0%;
+}
+
+anvato-controller .vod-time-bar-slider {
+  width: 7px;
+  padding-bottom: 7px;
+  border-radius: 50%;
+  background-color: #FFF;
+  position: absolute;
+  top: 50%;
+  cursor: pointer;
+  transition: width 0.15s, padding-bottom 0.15s;
+}
+
+anvato-controller .vod-time-bar-slider:hover {
+  width: 9px;
+  padding-bottom: 9px;
+}
+
+anvato-controller .vod-time-bar-slider:before {
+  position: absolute;
+  content: '';
+  top: -10px;
+  right: -10px;
+  left: -10px;
+  bottom: -10px;
+  cursor: pointer;
+}
+
+anvato-controller .button-shape {
+  width: 100%;
+  height: auto;
+  padding-top: 100%;
+  background-color: rgba(30, 30, 30, 0.7);
+  border-radius: 50%;
+  border: 3px solid rgba(160, 160, 160, 0.7);
+  left: -3px;
+  position: relative;
+  cursor: pointer;
+}
+
+anvato-controller .upper-button-container {
+  position: absolute;
+  width: 35px;
+  right: 5%;
+  top: 12%;
+  transition: opacity 0.25s;
+}
+
+anvato-controller .upper-button {
+  width: 100%;
+  float: left;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+anvato-controller .splash-container {
+  width: 100%;
+  height: 100%;
+  transition: opacity 0.25s;
+  color: #FFFFFF;
+  display: block;
+  position: relative;
+  text-shadow: 2px 2px 2px black;
+}
+
+anvato-controller .button-shape:not([disabled]):hover {
+  border: 3px solid rgba(160, 160, 160, 1.0);
+}
+
+anvato-controller .button-icon {
+  position: absolute;
+  top: 50%;
+  width: 35%;
+  left: 50%;
+}
+
+anvato-controller [active="true"] {
+  visibility: visible;
+}
+
+anvato-controller [active="false"] {
+  visibility: hidden;
+}
+
+anvato-controller [active-blue="true"] path {
+  fill: rgb(0, 178, 236);
+}
+
+anvato-controller [selected="true"] {
+  border-color: rgb(0, 178, 236);
+}
+
+anvato-controller [disabled] {
+  cursor: default;
+  opacity: 0.5;
+}
