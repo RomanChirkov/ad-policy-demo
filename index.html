@@ -19,7 +19,7 @@
       mcp:"sni",
        // * - Skip ad breaks if it has been less than GRACE_PERIOD seconds since the user last
        //  *   finished watching an ad break.
-      gracePeriodDur: 90,
+      gracePeriodDur: 7,
       autoplay: false,
       // plugins:{
       //   freewheel:{
@@ -32,6 +32,13 @@
       //     }
       //   }
       // },
+      plugins: {
+          openMeasurement: {
+            partnerName: "anvato",
+            partnerVersion: "3.0.0",
+            debug: true
+          }
+        },
     })
   </script>
 </body>
