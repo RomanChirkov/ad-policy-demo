@@ -7,7 +7,7 @@
   // global context.
   } else {
     var exports = {};
-    var versions = ['1.3.26-iab3222'];
+    var versions = ['1.3.28-iab3271'];
     var additionalVersionString = 'default';
     if (!!additionalVersionString) {
        versions.push(additionalVersionString);
@@ -214,6 +214,223 @@ $jscomp.polyfill = function(a, b, c, d) {
     b != d && null != b && $jscomp.defineProperty(c, a, {configurable:!0, writable:!0, value:b});
   }
 };
+$jscomp.checkEs6ConformanceViaProxy = function() {
+  try {
+    var a = {}, b = Object.create(new $jscomp.global.Proxy(a, {get:function(c, d, e) {
+      return c == a && "q" == d && e == b;
+    }}));
+    return !0 === b.q;
+  } catch (c) {
+    return !1;
+  }
+};
+$jscomp.USE_PROXY_FOR_ES6_CONFORMANCE_CHECKS = !1;
+$jscomp.ES6_CONFORMANCE = $jscomp.USE_PROXY_FOR_ES6_CONFORMANCE_CHECKS && $jscomp.checkEs6ConformanceViaProxy();
+$jscomp.owns = function(a, b) {
+  return Object.prototype.hasOwnProperty.call(a, b);
+};
+$jscomp.polyfill("WeakMap", function(a) {
+  function b() {
+    if (!a || !Object.seal) {
+      return !1;
+    }
+    try {
+      var b = Object.seal({}), c = Object.seal({}), d = new a([[b, 2], [c, 3]]);
+      if (2 != d.get(b) || 3 != d.get(c)) {
+        return !1;
+      }
+      d.delete(b);
+      d.set(c, 4);
+      return !d.has(b) && 4 == d.get(c);
+    } catch (l) {
+      return !1;
+    }
+  }
+  function c() {
+  }
+  function d(a) {
+    var b = typeof a;
+    return "object" === b && null !== a || "function" === b;
+  }
+  function e(a) {
+    if (!$jscomp.owns(a, f)) {
+      var b = new c;
+      $jscomp.defineProperty(a, f, {value:b});
+    }
+  }
+  function g(a) {
+    var b = Object[a];
+    b && (Object[a] = function(a) {
+      if (a instanceof c) {
+        return a;
+      }
+      e(a);
+      return b(a);
+    });
+  }
+  if ($jscomp.USE_PROXY_FOR_ES6_CONFORMANCE_CHECKS) {
+    if (a && $jscomp.ES6_CONFORMANCE) {
+      return a;
+    }
+  } else {
+    if (b()) {
+      return a;
+    }
+  }
+  var f = "$jscomp_hidden_" + Math.random();
+  g("freeze");
+  g("preventExtensions");
+  g("seal");
+  var k = 0, h = function(a) {
+    this.id_ = (k += Math.random() + 1).toString();
+    if (a) {
+      a = $jscomp.makeIterator(a);
+      for (var b; !(b = a.next()).done;) {
+        b = b.value, this.set(b[0], b[1]);
+      }
+    }
+  };
+  h.prototype.set = function(a, b) {
+    if (!d(a)) {
+      throw Error("Invalid WeakMap key");
+    }
+    e(a);
+    if (!$jscomp.owns(a, f)) {
+      throw Error("WeakMap key fail: " + a);
+    }
+    a[f][this.id_] = b;
+    return this;
+  };
+  h.prototype.get = function(a) {
+    return d(a) && $jscomp.owns(a, f) ? a[f][this.id_] : void 0;
+  };
+  h.prototype.has = function(a) {
+    return d(a) && $jscomp.owns(a, f) && $jscomp.owns(a[f], this.id_);
+  };
+  h.prototype.delete = function(a) {
+    return d(a) && $jscomp.owns(a, f) && $jscomp.owns(a[f], this.id_) ? delete a[f][this.id_] : !1;
+  };
+  return h;
+}, "es6", "es3");
+$jscomp.MapEntry = function() {
+};
+$jscomp.polyfill("Map", function(a) {
+  function b() {
+    if ($jscomp.ASSUME_NO_NATIVE_MAP || !a || "function" != typeof a || !a.prototype.entries || "function" != typeof Object.seal) {
+      return !1;
+    }
+    try {
+      var b = Object.seal({x:4}), c = new a($jscomp.makeIterator([[b, "s"]]));
+      if ("s" != c.get(b) || 1 != c.size || c.get({x:4}) || c.set({x:4}, "t") != c || 2 != c.size) {
+        return !1;
+      }
+      var d = c.entries(), e = d.next();
+      if (e.done || e.value[0] != b || "s" != e.value[1]) {
+        return !1;
+      }
+      e = d.next();
+      return e.done || 4 != e.value[0].x || "t" != e.value[1] || !d.next().done ? !1 : !0;
+    } catch (l) {
+      return !1;
+    }
+  }
+  if ($jscomp.USE_PROXY_FOR_ES6_CONFORMANCE_CHECKS) {
+    if (a && $jscomp.ES6_CONFORMANCE) {
+      return a;
+    }
+  } else {
+    if (b()) {
+      return a;
+    }
+  }
+  $jscomp.initSymbolIterator();
+  var c = new WeakMap, d = function(a) {
+    this.data_ = {};
+    this.head_ = f();
+    this.size = 0;
+    if (a) {
+      a = $jscomp.makeIterator(a);
+      for (var b; !(b = a.next()).done;) {
+        b = b.value, this.set(b[0], b[1]);
+      }
+    }
+  };
+  d.prototype.set = function(a, b) {
+    a = 0 === a ? 0 : a;
+    var c = e(this, a);
+    c.list || (c.list = this.data_[c.id] = []);
+    c.entry ? c.entry.value = b : (c.entry = {next:this.head_, previous:this.head_.previous, head:this.head_, key:a, value:b}, c.list.push(c.entry), this.head_.previous.next = c.entry, this.head_.previous = c.entry, this.size++);
+    return this;
+  };
+  d.prototype.delete = function(a) {
+    a = e(this, a);
+    return a.entry && a.list ? (a.list.splice(a.index, 1), a.list.length || delete this.data_[a.id], a.entry.previous.next = a.entry.next, a.entry.next.previous = a.entry.previous, a.entry.head = null, this.size--, !0) : !1;
+  };
+  d.prototype.clear = function() {
+    this.data_ = {};
+    this.head_ = this.head_.previous = f();
+    this.size = 0;
+  };
+  d.prototype.has = function(a) {
+    return !!e(this, a).entry;
+  };
+  d.prototype.get = function(a) {
+    return (a = e(this, a).entry) && a.value;
+  };
+  d.prototype.entries = function() {
+    return g(this, function(a) {
+      return [a.key, a.value];
+    });
+  };
+  d.prototype.keys = function() {
+    return g(this, function(a) {
+      return a.key;
+    });
+  };
+  d.prototype.values = function() {
+    return g(this, function(a) {
+      return a.value;
+    });
+  };
+  d.prototype.forEach = function(a, b) {
+    for (var c = this.entries(), d; !(d = c.next()).done;) {
+      d = d.value, a.call(b, d[1], d[0], this);
+    }
+  };
+  d.prototype[Symbol.iterator] = d.prototype.entries;
+  var e = function(a, b) {
+    var d = b && typeof b;
+    "object" == d || "function" == d ? c.has(b) ? d = c.get(b) : (d = "" + ++k, c.set(b, d)) : d = "p_" + b;
+    var e = a.data_[d];
+    if (e && $jscomp.owns(a.data_, d)) {
+      for (a = 0; a < e.length; a++) {
+        var f = e[a];
+        if (b !== b && f.key !== f.key || b === f.key) {
+          return {id:d, list:e, index:a, entry:f};
+        }
+      }
+    }
+    return {id:d, list:e, index:-1, entry:void 0};
+  }, g = function(a, b) {
+    var c = a.head_;
+    return $jscomp.iteratorPrototype(function() {
+      if (c) {
+        for (; c.head != a.head_;) {
+          c = c.previous;
+        }
+        for (; c.next != c.head;) {
+          return c = c.next, {done:!1, value:b(c)};
+        }
+        c = null;
+      }
+      return {done:!0, value:void 0};
+    });
+  }, f = function() {
+    var a = {};
+    return a.previous = a.next = a.head = a;
+  }, k = 0;
+  return d;
+}, "es6", "es3");
 var module$exports$omid$common$constants = {AdEventType:{IMPRESSION:"impression", LOADED:"loaded", GEOMETRY_CHANGE:"geometryChange", SESSION_START:"sessionStart", SESSION_ERROR:"sessionError", SESSION_FINISH:"sessionFinish", MEDIA:"media", VIDEO:"video", START:"start", FIRST_QUARTILE:"firstQuartile", MIDPOINT:"midpoint", THIRD_QUARTILE:"thirdQuartile", COMPLETE:"complete", PAUSE:"pause", RESUME:"resume", BUFFER_START:"bufferStart", BUFFER_FINISH:"bufferFinish", SKIPPED:"skipped", VOLUME_CHANGE:"volumeChange", 
 PLAYER_STATE_CHANGE:"playerStateChange", AD_USER_INTERACTION:"adUserInteraction", STATE_CHANGE:"stateChange"}, MediaEventType:{LOADED:"loaded", START:"start", FIRST_QUARTILE:"firstQuartile", MIDPOINT:"midpoint", THIRD_QUARTILE:"thirdQuartile", COMPLETE:"complete", PAUSE:"pause", RESUME:"resume", BUFFER_START:"bufferStart", BUFFER_FINISH:"bufferFinish", SKIPPED:"skipped", VOLUME_CHANGE:"volumeChange", PLAYER_STATE_CHANGE:"playerStateChange", AD_USER_INTERACTION:"adUserInteraction"}, ImpressionType:{DEFINED_BY_JAVASCRIPT:"definedByJavaScript", 
 UNSPECIFIED:"unspecified", LOADED:"loaded", BEGIN_TO_RENDER:"beginToRender", ONE_PIXEL:"onePixel", VIEWABLE:"viewable", AUDIBLE:"audible", OTHER:"other"}, ErrorType:{GENERIC:"generic", VIDEO:"video", MEDIA:"media"}, AdSessionType:{NATIVE:"native", HTML:"html", JAVASCRIPT:"javascript"}, EventOwner:{NATIVE:"native", JAVASCRIPT:"javascript", NONE:"none"}, AccessMode:{FULL:"full", DOMAIN:"domain", LIMITED:"limited"}, AppState:{BACKGROUNDED:"backgrounded", FOREGROUNDED:"foregrounded"}, Environment:{APP:"app", 
@@ -440,7 +657,7 @@ function module$contents$omid$common$logger_executeLog(a, b) {
 module$exports$omid$common$logger.error = module$contents$omid$common$logger_error;
 module$exports$omid$common$logger.debug = module$contents$omid$common$logger_debug;
 var module$exports$omid$common$eventTypedefs = {};
-var module$exports$omid$common$version = {ApiVersion:"1.0", Version:"1.3.26-iab3222"};
+var module$exports$omid$common$version = {ApiVersion:"1.0", Version:"1.3.28-iab3271"};
 var module$exports$omid$common$VersionUtils = {}, module$contents$omid$common$VersionUtils_SEMVER_DIGITS_NUMBER = 3;
 function module$contents$omid$common$VersionUtils_isValidVersion(a) {
   return /\d+\.\d+\.\d+(-.*)?/.test(a);
@@ -614,7 +831,7 @@ function module$contents$omid$common$serviceCommunication_startServiceCommunicat
       if (e) {
         return new module$exports$omid$common$DirectCommunication(e);
       }
-    } catch (f) {
+    } catch (g) {
     }
   }
   return d(b) ? new module$exports$omid$common$PostMessageCommunication(a, b) : null;
@@ -910,6 +1127,27 @@ var module$exports$omid$sessionClient$OmidVersion = function(a, b) {
 module$contents$omid$common$exporter_packageExport("OmidSessionClient.OmidVersion", module$exports$omid$sessionClient$OmidVersion);
 var module$exports$omid$sessionClient$VastPropertiesExports = {};
 module$contents$omid$common$exporter_packageExport("OmidSessionClient.VastProperties", module$exports$omid$common$VastProperties);
+var module$exports$omid$sessionClient$VerificationVendor = {VerificationVendorId:{OTHER:1, MOAT:2, DOUBLEVERIFY:3, INTEGRAL_AD_SCIENCE:4, PIXELATE:5, NIELSEN:6, COMSCORE:7, MEETRICS:8, GOOGLE:9}};
+function module$contents$omid$sessionClient$VerificationVendor_verificationVendorIdForScriptUrl(a) {
+  for (var b = $jscomp.makeIterator(module$contents$omid$sessionClient$VerificationVendor_VERIFICATION_VENDORS), c = b.next(); !c.done; c = b.next()) {
+    var d = $jscomp.makeIterator(c.value);
+    c = d.next().value;
+    d = d.next().value;
+    d = $jscomp.makeIterator(d);
+    for (var e = d.next(); !e.done; e = d.next()) {
+      if (e.value.test(a)) {
+        return c;
+      }
+    }
+  }
+  return module$exports$omid$sessionClient$VerificationVendor.VerificationVendorId.OTHER;
+}
+var module$contents$omid$sessionClient$VerificationVendor_VERIFICATION_VENDORS = new Map([[module$exports$omid$sessionClient$VerificationVendor.VerificationVendorId.MOAT, [/^(https?:\/\/|\/\/)?[-a-zA-Z0-9.]+\.moatads\.com\/.*$/]], [module$exports$omid$sessionClient$VerificationVendor.VerificationVendorId.DOUBLEVERIFY, [/^(https?:\/\/|\/\/)?[-a-zA-Z0-9.]+\.doubleverify\.com\/.*$/]], [module$exports$omid$sessionClient$VerificationVendor.VerificationVendorId.INTEGRAL_AD_SCIENCE, [/^(https?:\/\/|\/\/)?[-a-zA-Z0-9.]+\.adsafeprotected\.com\/.*$/]], 
+[module$exports$omid$sessionClient$VerificationVendor.VerificationVendorId.PIXELATE, [/^https?:\/\/(q|cdn)\.adrta\.com\/s\/.*\/(aa|aanf)\.js.*$/, /^https:\/\/cdn\.rta247\.com\/s\/.*\/(aa|aanf)\.js.*$/]], [module$exports$omid$sessionClient$VerificationVendor.VerificationVendorId.NIELSEN, []], [module$exports$omid$sessionClient$VerificationVendor.VerificationVendorId.COMSCORE, [/^(https?:\/\/|\/\/)?[-a-zA-Z0-9.]+\.voicefive\.com\/.*$/, /^(https?:\/\/|\/\/)?[-a-zA-Z0-9.]+\.measuread\.com\/.*$/, /^(https?:\/\/|\/\/)?[-a-zA-Z0-9.]+\.scorecardresearch\.com\/.*$/]], 
+[module$exports$omid$sessionClient$VerificationVendor.VerificationVendorId.MEETRICS, [/^(https?:\/\/|\/\/)?s418\.mxcdn\.net\/bb-serve\/omid-meetrics.*\.js$/]], [module$exports$omid$sessionClient$VerificationVendor.VerificationVendorId.GOOGLE, [/^(https?:\/\/|\/\/)?pagead2\.googlesyndication\.com\/.*$/, /^(https?:\/\/|\/\/)?www\.googletagservices\.com\/.*$/]]]);
+module$contents$omid$common$exporter_packageExport("OmidSessionClient.verificationVendorIdForScriptUrl", module$contents$omid$sessionClient$VerificationVendor_verificationVendorIdForScriptUrl);
+module$contents$omid$common$exporter_packageExport("OmidSessionClient.VerificationVendorId", module$exports$omid$sessionClient$VerificationVendor.VerificationVendorId);
+module$exports$omid$sessionClient$VerificationVendor.verificationVendorIdForScriptUrl = module$contents$omid$sessionClient$VerificationVendor_verificationVendorIdForScriptUrl;
 var module$exports$omid$common$FloatComparer = {}, module$contents$omid$common$FloatComparer_FLOAT_ROUGH_DIFF_TOLERANCE = 0.01;
 function module$contents$omid$common$FloatComparer_roughlyEqual(a, b) {
   return Math.abs(a - b) < module$contents$omid$common$FloatComparer_FLOAT_ROUGH_DIFF_TOLERANCE;
