@@ -756,9 +756,7 @@ The "on" attribute:
 
 /* The right section of the share panel */
 .anv-share-right-panel {
-  margin-left: 5%;
   min-width: 150px;
-  width: 48%;
 }
 
 /* The prompt for the email section in the share screen */
@@ -784,9 +782,6 @@ The "on" attribute:
 }
 
 .anv-share-social-links-panel {
-  text-align: justify;
-  -ms-text-justify: distribute-all-lines;
-  text-justify: distribute-all-lines;
   margin-top: 7%;
   margin-bottom: 7%;
 }
@@ -794,6 +789,11 @@ The "on" attribute:
 /* This class is given to the social media icon buttons within the share screen */
 .anv-share-social-btn {
   display: inline-block;
+  margin-left: 15px;
+}
+
+.anv-share-social-btn:first-child {
+  margin-left: 0;
 }
 
 .anv-share-social-btn svg{
@@ -1015,54 +1015,54 @@ The "on" attribute:
 }
 
 .anv-chromecast-button {
-  display: none;
-  width: 32px;
-  height: 32px;
+  display: none !important;
+  width: 32px !important;
+  height: 32px !important;
 }
 
 .anv-splash-img > .anv-chromecast-button {
   display: none !important;
-  position: absolute;
-  right: 5%;
-  bottom: 5%;
+  position: absolute !important;
+  right: 5% !important;
+  bottom: 5% !important;
 }
 
 .anv-splash-mode-hoverScreen > .anv-splash-img > .anv-chromecast-button,
 .anv-splash-mode-castScreen > .anv-splash-img > .anv-chromecast-button {
-  display: none;
+  display: none !important;
 }
 
 .anv-chromecast-button[state="active"],
 .anv-chromecast-button[state="buffering"],
 .anv-chromecast-button[state="playing"],
 .anv-chromecast-button[state="paused"] {
-  display: block;
-  background-position: -32px 0;
+  display: block !important;
+  background-position: -32px 0 !important;
 }
 .anv-chromecast-button[state="active"] .cast-error,
 .anv-chromecast-button[state="buffering"] .cast-error,
 .anv-chromecast-button[state="playing"] .cast-error,
 .anv-chromecast-button[state="paused"] .cast-error {
-  display: none;
+  display: none !important;
 }
 
 .anv-chromecast-button[state="idle"] {
-  display: block;
-  background-position: 0 0;
+  display: block !important;
+  background-position: 0 0 !important;
 }
 
 .anv-chromecast-button[state="idle"] .cast-inner,
 .anv-chromecast-button[state="idle"] .cast-error {
-  display: none;
+  display: none !important;
 }
 
 .anv-chromecast-button[state="error"] {
-  display: block;
-  background-position: -64px 0;
+  display: block !important;
+  background-position: -64px 0 !important;
 }
 
 .anv-control > .anv-chromecast-button {
-  float: right;
+  float: right !important;
 }
 
 .anv-splash-cast-status {
@@ -1078,33 +1078,35 @@ The "on" attribute:
 }
 
 .anv-splash-cast-load-button {
-  display: none;
-  right: 0;
-  bottom: 0;
-  position: absolute;
+  display: none !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  /* width: 100px;
+  height: 100px; */
+  position: absolute !important;
 }
 
 .anv-splash-mode-loadScreen .anv-splash-cast-load-button:not([status="none"]) {
-  display: block;
+  display: block !important;
 }
 
 .anv-splash-cast-status-icon {
-  display: inline-block;
-  width: 50px;
-  height: 44px;
+  display: inline-block !important;
+  width: 50px !important;
+  height: 44px !important;
 }
 
 .anv-splash-cast-status-icon svg * {
-  fill: #eef8ff;
+  fill: #eef8ff !important;
 }
 
 .anv-splash-cast-status-icon svg {
-  width: 100%;
-  height: 100%;
+  width: 100% !important;
+  height: 100% !important;
 }
 
 .anv-splash-cast-status-icon svg .cast-error {
-  display: none;
+  display: none !important;
 }
 
 .anv-control-playlist-badge {
@@ -1450,6 +1452,9 @@ The "on" attribute:
   }
   .anv-recommendation-up-next {
     display: block;
+  }
+  .anv-share-panel {
+    overflow: scroll;
   }
 }
 

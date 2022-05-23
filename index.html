@@ -1,27 +1,60 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="robots" content="noindex"/>
-  <title>Ad-policy Page</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Chromecast Demo">
   <script src="release/scripts/anvload.js"></script>
 </head>
+
 <body>
   <div id="p0"></div>
   <script>
     AnvatoPlayer('p0').init({
-      width: "100%",
-      accessKey:"kAx2zqa3gI9nYxGtzkSnO3Nzu6MNo9yX",
-      video:"4149700",
-      //maybe need to refresh token
-      token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ2aWQiOiI0MTQ5NzAwIiwiaXNzIjoia0F4MnpxYTNnSTluWXhHdHprU25PM056dTZNTm85eVgiLCJleHAiOjFlKzMwLCJpYXQiOjE2NDE0ODY0MzJ9.3PwRON5QENmQn0G2pOYA7EcWazDr3RzK7ywp0Eq94I0",
-      mcp:"sni",
-       // * - Skip ad breaks if it has been less than GRACE_PERIOD seconds since the user last
-       //  *   finished watching an ad break.
-      gracePeriodDur: 7,
+      "accessKey": "kAx2zqa3gI9nYxGtzkSnO3Nzu6MNo9yX",
+      "mcp": "UNIVISON",
+      "video": "3973918",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ2aWQiOiIzOTczOTE4IiwiaXNzIjoia0F4MnpxYTNnSTluWXhHdHprU25PM056dTZNTm85eVgiLCJleHAiOjFlKzMwLCJpYXQiOjE2NTI4NjYwOTh9.vhWdzPG1GMtWj_kTkwwUwyO5Z61s6hEm1bpQyEWOrGo",
+      "width": "100%",
+      "plugins": {
+        "chromecast": {
+          "appId": "F8EEE5AE"
+        }
+      }
+    });
+    function firstVideo(){
+      AnvatoPlayer('p0').init({
+      "accessKey": "jQV3eb01eTL1Wz9FYOId7158UwbpYmAV",
+      "mcp": "UNIVISON",
+      "video": "adstGgBYdoQENykn",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ2aWQiOiJhZHN0R2dCWWRvUUVOeWtuIiwiaXNzIjoialFWM2ViMDFlVEwxV3o5RllPSWQ3MTU4VXdicFltQVYiLCJleHAiOjFlKzMwLCJpYXQiOjE2NTI4NjYxNTJ9.KacWVbBMWznvYbEQIJSjZQfBlhGu2TtJhRjnjXo-8rs",
+      "width": "100%",
       autoplay: false,
-    })
+      "plugins": {
+        "chromecast": {
+          "appId": "F8EEE5AE"
+        }
+      }
+    });
+    }
+    function secondVideo(){
+      AnvatoPlayer('p0').init({
+      "accessKey": "kAx2zqa3gI9nYxGtzkSnO3Nzu6MNo9yX",
+      "mcp": "UNIVISON",
+      "video": "3973918",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ2aWQiOiIzOTczOTE4IiwiaXNzIjoia0F4MnpxYTNnSTluWXhHdHprU25PM056dTZNTm85eVgiLCJleHAiOjFlKzMwLCJpYXQiOjE2NTI4NjYwOTh9.vhWdzPG1GMtWj_kTkwwUwyO5Z61s6hEm1bpQyEWOrGo",
+      "width": "100%",
+      "plugins": {
+        "chromecast": {
+          "appId": "F8EEE5AE"
+        }
+      }
+    });
+    }
   </script>
+  <button onclick="firstVideo()">Uni live</button>
+  <button onclick="secondVideo()">Uni VOD</button>
 </body>
+
 </html>
