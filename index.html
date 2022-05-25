@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Chromecast Demo">
-  <script src="release/scripts/anvload.js"></script>
+  <script src="/dist/scripts/anvload.js"></script>
 </head>
 
 <body>
@@ -14,14 +14,14 @@
     let appId = 'F8EEE5AE';
     const urlParams = new URLSearchParams(window.location.search);
     const receiverId = urlParams.get('receiverId');
-    if(receiverId){
+    if (receiverId) {
       appId = receiverId;
     }
     AnvatoPlayer('p0').init({
-      "accessKey": "kAx2zqa3gI9nYxGtzkSnO3Nzu6MNo9yX",
+      "accessKey": "vA0GdzbmMTG1wNOig5hRZEOGSjW6wkQO",
+      "video": "3968932",
+      "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ2aWQiOiIzOTY4OTMyIiwiaXNzIjoidkEwR2R6Ym1NVEcxd05PaWc1aFJaRU9HU2pXNndrUU8iLCJleHAiOjE2NTcwODUyNjR9.abOYE-qJOVPZ08LPl_vnmWyaKq7f4KGyeJ7DTiwoZ6Q",
       "mcp": "UNIVISON",
-      "video": "3973918",
-      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ2aWQiOiIzOTczOTE4IiwiaXNzIjoia0F4MnpxYTNnSTluWXhHdHprU25PM056dTZNTm85eVgiLCJleHAiOjFlKzMwLCJpYXQiOjE2NTI4NjYwOTh9.vhWdzPG1GMtWj_kTkwwUwyO5Z61s6hEm1bpQyEWOrGo",
       "width": "100%",
       "plugins": {
         "chromecast": {
@@ -29,38 +29,112 @@
         }
       }
     });
-    function firstVideo(){
+
+
+
+    function firstVideo() {
       AnvatoPlayer('p0').init({
-      "accessKey": "jQV3eb01eTL1Wz9FYOId7158UwbpYmAV",
-      "mcp": "UNIVISON",
-      "video": "adstGgBYdoQENykn",
-      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ2aWQiOiJhZHN0R2dCWWRvUUVOeWtuIiwiaXNzIjoialFWM2ViMDFlVEwxV3o5RllPSWQ3MTU4VXdicFltQVYiLCJleHAiOjFlKzMwLCJpYXQiOjE2NTI4NjYxNTJ9.KacWVbBMWznvYbEQIJSjZQfBlhGu2TtJhRjnjXo-8rs",
-      "width": "100%",
-      'autoplay': 'false',
-      "plugins": {
-        "chromecast": {
-          "appId": `${appId}`
+        "accessKey": "vA0GdzbmMTG1wNOig5hRZEOGSjW6wkQO",
+        "mcp": "UNIVISON",
+        "video": "3968932",
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ2aWQiOiJhZHN0R2dCWWRvUUVOeWtuIiwiaXNzIjoialFWM2ViMDFlVEwxV3o5RllPSWQ3MTU4VXdicFltQVYiLCJleHAiOjFlKzMwLCJpYXQiOjE2NTM0ODUwNDZ9.T6_6wyiLnkf9HQNPlwdqEehFM6JzwlUncTMFtjPo2Xo",
+        "width": "100%",
+        "plugins": {
+          "chromecast": {
+            "appId": `${appId}`
+          }
         }
-      }
-    });
+      });
     }
-    function secondVideo(){
+
+    function secondVideo() {
       AnvatoPlayer('p0').init({
-      "accessKey": "kAx2zqa3gI9nYxGtzkSnO3Nzu6MNo9yX",
-      "mcp": "UNIVISON",
-      "video": "3973918",
-      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ2aWQiOiIzOTczOTE4IiwiaXNzIjoia0F4MnpxYTNnSTluWXhHdHprU25PM056dTZNTm85eVgiLCJleHAiOjFlKzMwLCJpYXQiOjE2NTI4NjYwOTh9.vhWdzPG1GMtWj_kTkwwUwyO5Z61s6hEm1bpQyEWOrGo",
-      "width": "100%",
-      "plugins": {
-        "chromecast": {
-          "appId": `${appId}`
+        accessKey: "vA0GdzbmMTG1wNOig5hRZEOGSjW6wkQO",
+        video: "3026938",
+        token: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ2aWQiOiIzMDI2OTM4IiwiaXNzIjoidkEwR2R6Ym1NVEcxd05PaWc1aFJaRU9HU2pXNndrUU8iLCJleHAiOjE2NTcwODU3MDJ9.1Vf8Li7u6OLLgNZnSW4cSeLfXRymrgYiyRB-vOy-Gwg",
+        mcp: "UNIVISON",
+        "plugins": {
+          "chromecast": {
+            "appId": `${appId}`
+          }
         }
-      }
-    });
+      });
+    }
+
+    function thirdVideo() {
+      AnvatoPlayer('p0').init({
+        "accessKey": "vA0GdzbmMTG1wNOig5hRZEOGSjW6wkQO",
+        "mcp": "UNIVISON",
+        "video": "4001182",
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ2aWQiOiI0MDAxMTgyIiwiaXNzIjoidkEwR2R6Ym1NVEcxd05PaWc1aFJaRU9HU2pXNndrUU8iLCJleHAiOjFlKzMwLCJpYXQiOjE2NTM0NjcyMTd9.4yfPlRyPQ-PGYNnGAqLPi6a_k-6ezex_bK2Jwyn6XP4",
+        "width": "100%",
+        "plugins": {
+          "chromecast": {
+            "appId": `${appId}`
+          }
+        }
+      });
+    }
+
+    function firstLive() {
+      AnvatoPlayer('p0').init({
+        accessKey: "jQV3eb01eTL1Wz9FYOId7158UwbpYmAV",
+        video: "adstGLxOqGeaXgB1",
+        token: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ2aWQiOiJhZHN0R0x4T3FHZWFYZ0IxIiwiaXNzIjoialFWM2ViMDFlVEwxV3o5RllPSWQ3MTU4VXdicFltQVYiLCJleHAiOjE2ODk0ODczMjB9.NSf-OXAs7W66eFNDGDVxm9jLgVS_GlArpqchKijB2OE",
+        mcp: "UNIVISON",
+        "width": "100%",
+        "plugins": {
+          "chromecast": {
+            "appId": `${appId}`
+          }
+        }
+      });
+    }
+
+    function secondLive() {
+      AnvatoPlayer('p0').init({
+        accessKey: "jQV3eb01eTL1Wz9FYOId7158UwbpYmAV",
+        video: "adstZ2E5NJ0dw1eY",
+        token: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ2aWQiOiJhZHN0WjJFNU5KMGR3MWVZIiwiaXNzIjoialFWM2ViMDFlVEwxV3o5RllPSWQ3MTU4VXdicFltQVYifQ.ODeNyh3OnGK2Etwg38OUyMG0fnlqfSq2sp5xseaqqUQ",
+        mcp: "UNIVISON",
+        "width": "100%",
+        "plugins": {
+          "chromecast": {
+            "appId": `${appId}`
+          }
+        }
+      });
+    }
+
+    function thirdLive() {
+      AnvatoPlayer('p0').init({
+        accessKey: "jQV3eb01eTL1Wz9FYOId7158UwbpYmAV",
+        video: "adstGgBYdoQENykn",
+        token: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ2aWQiOiJhZHN0R2dCWWRvUUVOeWtuIiwiaXNzIjoialFWM2ViMDFlVEwxV3o5RllPSWQ3MTU4VXdicFltQVYiLCJleHAiOjE2ODk0ODY2MDd9.ENTr2hXPz16NO92hHDIUCuJ39NJI0SMy5RQFe-nntcg",
+        mcp: "UNIVISON",
+        "width": "100%",
+        "plugins": {
+          "chromecast": {
+            "appId": `${appId}`
+          }
+        }
+      });
     }
   </script>
-  <button onclick="firstVideo()">Uni live</button>
-  <button onclick="secondVideo()">Uni VOD</button>
+  <div>
+    VODs
+    <button onclick="firstVideo()">3968932</button>
+    <button onclick="secondVideo()">3026938</button>
+    <button onclick="thirdVideo()">4001182</button>
+  </div>
+  <br>
+  <div>
+    LIVEs
+    <br>
+    <button onclick="firstLive()">Z005 - https://uni-mcp.mp.lura.live/events/monetizechannel/59</button>
+    <button onclick="secondLive()">Z009 - https://uni-mcp.mp.lura.live/events/monetizechannel/63</button>
+    <button onclick="thirdLive()">frequancy-News-24-7 - https://uni-mcp.mp.lura.live/events/monetizechannel/177</button>
+  </div>
 </body>
 
 </html>
