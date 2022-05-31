@@ -5,11 +5,26 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Chromecast Demo">
+  <link rel="stylesheet" href="/style.css">
   <script src="dist/scripts/anvload.js"></script>
 </head>
 
 <body>
   <div id="p0"></div>
+  <div class="samples">
+    <div class="samples-wrapper">
+      <h3>VODs:</h1> 
+      <button onclick="firstVideo()">3968932</button>
+      <button onclick="secondVideo()">3026938</button>
+      <button onclick="thirdVideo()">4001182</button>
+    </div>
+    <div class="samples-wrapper">     
+      <h3>LIVEs:</h1>
+      <button onclick="firstLive()">Z005</button>
+      <button onclick="secondLive()">Z009</button>
+      <button onclick="thirdLive()">frequancy-News-24-7</button>
+    </div>
+  </div>
   <script>
     let appId = 'F8EEE5AE';
     const urlParams = new URLSearchParams(window.location.search);
@@ -22,7 +37,7 @@
       video: "3968932",
       token: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ2aWQiOiIzOTY4OTMyIiwiaXNzIjoidkEwR2R6Ym1NVEcxd05PaWc1aFJaRU9HU2pXNndrUU8iLCJleHAiOjE2NTQwMjY4Nzl9.MxG6oiOcEwfsPx7RiUHuLjmBYX1DeBtN3I6mRnLAtwc",
       mcp: "UNIVISON",
-      "width": "100%",
+      "width": "70%",
       "plugins": {
         "chromecast": {
           "appId": `${appId}`
@@ -38,7 +53,7 @@
         video: "3968932",
         token: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ2aWQiOiIzOTY4OTMyIiwiaXNzIjoidkEwR2R6Ym1NVEcxd05PaWc1aFJaRU9HU2pXNndrUU8iLCJleHAiOjE2NTQwMjY4Nzl9.MxG6oiOcEwfsPx7RiUHuLjmBYX1DeBtN3I6mRnLAtwc",
         mcp: "UNIVISON",
-        "width": "100%",
+        "width": "70%",
         "plugins": {
           "chromecast": {
             "appId": `${appId}`
@@ -53,6 +68,7 @@
         video: "3026938",
         token: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ2aWQiOiIzMDI2OTM4IiwiaXNzIjoidkEwR2R6Ym1NVEcxd05PaWc1aFJaRU9HU2pXNndrUU8iLCJleHAiOjE2NTcwODU3MDJ9.1Vf8Li7u6OLLgNZnSW4cSeLfXRymrgYiyRB-vOy-Gwg",
         mcp: "UNIVISON",
+        "width": "70%",
         "plugins": {
           "chromecast": {
             "appId": `${appId}`
@@ -67,7 +83,7 @@
         "mcp": "UNIVISON",
         "video": "4001182",
         "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ2aWQiOiI0MDAxMTgyIiwiaXNzIjoidkEwR2R6Ym1NVEcxd05PaWc1aFJaRU9HU2pXNndrUU8iLCJleHAiOjFlKzMwLCJpYXQiOjE2NTM0NjcyMTd9.4yfPlRyPQ-PGYNnGAqLPi6a_k-6ezex_bK2Jwyn6XP4",
-        "width": "100%",
+        "width": "70%",
         "plugins": {
           "chromecast": {
             "appId": `${appId}`
@@ -82,7 +98,7 @@
         video: "adstGLxOqGeaXgB1",
         token: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ2aWQiOiJhZHN0R0x4T3FHZWFYZ0IxIiwiaXNzIjoialFWM2ViMDFlVEwxV3o5RllPSWQ3MTU4VXdicFltQVYiLCJleHAiOjE2ODk0ODczMjB9.NSf-OXAs7W66eFNDGDVxm9jLgVS_GlArpqchKijB2OE",
         mcp: "UNIVISON",
-        "width": "100%",
+        "width": "70%",
         "plugins": {
           "chromecast": {
             "appId": `${appId}`
@@ -97,7 +113,7 @@
         video: "adstZ2E5NJ0dw1eY",
         token: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ2aWQiOiJhZHN0WjJFNU5KMGR3MWVZIiwiaXNzIjoialFWM2ViMDFlVEwxV3o5RllPSWQ3MTU4VXdicFltQVYifQ.ODeNyh3OnGK2Etwg38OUyMG0fnlqfSq2sp5xseaqqUQ",
         mcp: "UNIVISON",
-        "width": "100%",
+        "width": "70%",
         "plugins": {
           "chromecast": {
             "appId": `${appId}`
@@ -112,7 +128,7 @@
         video: "adstGgBYdoQENykn",
         token: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ2aWQiOiJhZHN0R2dCWWRvUUVOeWtuIiwiaXNzIjoialFWM2ViMDFlVEwxV3o5RllPSWQ3MTU4VXdicFltQVYiLCJleHAiOjE2ODk0ODY2MDd9.ENTr2hXPz16NO92hHDIUCuJ39NJI0SMy5RQFe-nntcg",
         mcp: "UNIVISON",
-        "width": "100%",
+        "width": "70%",
         "plugins": {
           "chromecast": {
             "appId": `${appId}`
@@ -121,20 +137,7 @@
       });
     }
   </script>
-  <div>
-    VODs
-    <button onclick="firstVideo()">3968932</button>
-    <button onclick="secondVideo()">3026938</button>
-    <button onclick="thirdVideo()">4001182</button>
-  </div>
-  <br>
-  <div>
-    LIVEs
-    <br>
-    <button onclick="firstLive()">Z005 - https://uni-mcp.mp.lura.live/events/monetizechannel/59</button>
-    <button onclick="secondLive()">Z009 - https://uni-mcp.mp.lura.live/events/monetizechannel/63</button>
-    <button onclick="thirdLive()">frequancy-News-24-7 - https://uni-mcp.mp.lura.live/events/monetizechannel/177</button>
-  </div>
+  <script src="/scripts/captions.js"></script>
 </body>
 
 </html>
