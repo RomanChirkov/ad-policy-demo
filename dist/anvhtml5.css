@@ -694,7 +694,8 @@ The "on" attribute:
   max-width: 740px;
   max-height: 360px;
   font-size: 20px;
-  overflow: hidden;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 /* This class is given to all buttons within the share screen */
@@ -1458,9 +1459,6 @@ The "on" attribute:
   }
   .anv-recommendation-up-next {
     display: block;
-  }
-  .anv-share-panel {
-    overflow: scroll;
   }
 }
 
