@@ -9,7 +9,9 @@ anvp.onReady = function (p) {
 function generalListener(e) {
     // console.log("event: [" + e.name + "]", e.args);
     switch (e.name) {
+        case "CAPTION_DETECTED":
         case "VIDEO_STARTED":
+            console.log(captionActivated, captionLang)
             if(captionActivated){
                 anvp.p0.setCaption(captionLang);
             }
