@@ -1,7 +1,7 @@
 {
   "version": "3.8.5",
   "built": "1",
-  "revision": "dev",
-  "hashPrefix": "dev",
-  "mode": "development"
+  "revision": "19df15c5",
+  "hashPrefix": "19df15c5",
+  "mode": "production"
 }

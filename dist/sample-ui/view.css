@@ -1,0 +1,364 @@
+.splash {
+  background: #000;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  position: absolute;
+  opacity: 1;
+}
+
+.splash .title, .splash .description {
+  color: white;
+  padding: 20px 20px 0;
+}
+
+.splash .title {
+  font-size: 30px;
+}
+
+.play svg {
+  fill: #fff;
+}
+
+.splash .play {
+  display: none;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  position: absolute;
+  width: 240px;
+  height: 240px;
+}
+
+.splash[data-mode='loadScreen'] .play{
+  display: block;
+}
+
+.splash[data-mode='loadScreen'] ~ .control{
+  display: none;
+}
+
+.custom-ui[data-buffering='on'] .play{
+  display: none;
+}
+
+.custom-ui[data-buffering='on'] .spinner{
+  display: block;
+}
+
+.splash[data-mode='hoverScreen'] {
+  background: none;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.spinner {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 120px;
+  height: 120px;
+  margin: auto;
+  -webkit-animation: spin 2s linear infinite;
+  -moz-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+  display: none;
+}
+
+.spinner svg {
+  fill: white;
+}
+
+@-moz-keyframes spin {
+  100% {
+    -moz-transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.control {
+  background: rgba(0, 0, 0, .8);
+  bottom: 0;
+  position: absolute;
+  left: 0;
+  right: 0;
+  visibility: visible;
+}
+
+.control .progress {
+  width: 0;
+  background: red;
+  height: 5px;
+}
+
+.control .button svg {
+  fill: white;
+}
+.control .button {
+  width: 64px;
+  height: 64px;
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+.control .play-pause[data-state='playing'] .paused {
+  display: none;
+}
+
+.control .play-pause[data-state='paused'] .playing {
+  display: none;
+}
+
+.control .time {
+  display: none;
+}
+
+.control .time .text {
+  color: white;
+  line-height: 64px;
+  font-size: 24px;
+}
+
+.control .time[data-state='live'] .vod {
+  display: none;
+}
+
+.control .time[data-state='vod'] .live {
+  display: none;
+}
+
+.control .fullscreen[data-state='off'] .on {
+  display: none;
+}
+
+.control .fullscreen[data-state='on'] .off {
+  display: none;
+}
+
+.control[data-state='responsive'] {
+  bottom: -64px;
+  transition: all .5s;
+}
+
+.control[data-state='hidden'] {
+  bottom: -64px;
+}
+
+.control:hover {
+  bottom: 0;
+}
+
+.control .timeline:hover .progress {
+  height: 15px;
+  transition: all .2s;
+  cursor: pointer;
+}
+.control .timeline:hover {
+  cursor: pointer;
+}
+
+.control .bitrate {
+  position: relative;
+}
+
+.bitrate svg {
+  cursor:pointer;
+}
+
+.bitrate > input {
+  visibility: hidden;
+  position: absolute;
+}
+.bitrate > input:checked ~ ul {
+  display: block;
+}
+
+.bitrate .rendition-list[data-auto-bitrate="true"] .auto {
+  color: red;
+}
+.bitrate .rendition-list li label[data-switch-pending="true"] {
+  -webkit-animation-name: blink;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: cubic-bezier(1.0, 0, 0, 1.0);
+  -webkit-animation-duration: 1s;
+}
+.bitrate .rendition-list {
+  display: none;
+  color: white;
+  list-style: none;
+  position: absolute;
+  bottom: 64px;
+  left: -5%;
+  right: -5%;
+  width: 110%;
+  padding: 0;
+  margin: 5px auto;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+.rendition-list li {
+  display: block;
+}
+.rendition-list input {
+  visibility: hidden;
+  position: absolute;
+}
+.rendition-list label {
+  cursor: pointer;
+  text-align: center;
+  display: block;
+  width: 100%;
+  font-size: 14px;
+  line-height: 14px;
+  padding: 5px 0;
+}
+input:checked + label {
+  color: red;
+}
+
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.recommendation {
+  color: white;
+  display: none;
+  position: relative;
+}
+
+.recommendation .cancel {
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  padding: 5%;
+  position: absolute;
+  right: 0;
+}
+
+.recommendation .content {
+  background-color: rgba(0, 0, 0, 0.6);
+  bottom: 0;
+  height: 75%;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 75%;
+}
+
+.recommendation .count-down {
+  padding-top: 2%;
+}
+
+.recommendation .duration {
+  background-color: rgba(0, 0, 0, 0.6);
+  bottom: 5px;
+  padding: 2px;
+  position: absolute;
+  right: 5px;
+}
+
+.recommendation .grid {
+  background-color: #000;
+  display: none;
+  height: 100%;
+}
+
+.recommendation .item {
+  display: inline-block;
+  height: 100%;
+  position: relative;
+  width: 32%;
+}
+
+.recommendation .name {
+  background-color: rgba(0, 0, 0, 0.6);
+  left: 5px;
+  padding: 2px;
+  position: absolute;
+  top: 5px;
+}
+
+.recommendation .play {
+  bottom: 0;
+  height: 50%;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 20%;
+}
+
+.recommendation .play svg {
+  height: 100%;
+  width: 100%;
+}
+
+.recommendation .row {
+  height: 50%;
+  margin-bottom: 5px;
+}
+
+.recommendation .rows {
+  height: 80%;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 5%;
+}
+
+.recommendation .replay {
+  bottom: 5px;
+  fill: white;
+  left: 5px;
+  position: absolute;
+}
+
+.recommendation .thumbnail {
+  height: 100%;
+  width: 100%;
+}
+
+.recommendation .title {
+  padding-top: 5%;
+}
+
+.recommendation .up-next {
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+}
+
+.preview {
+  visibility: hidden;
+  position: absolute;
+  width: auto;
+  height: auto;
+  z-index: 2147483648;
+}
