@@ -26,7 +26,7 @@
     </div>
   </div>
   <script>
-    let appId = 'F8EEE5AE';
+    let appId = 'DFCF747D';
     const urlParams = new URLSearchParams(window.location.search);
     const receiverId = urlParams.get('receiverId');
     if (receiverId) {
@@ -48,6 +48,7 @@
 
 
     function firstVideo() {
+      AnvatoPlayer('p0').destroy();
       AnvatoPlayer('p0').init({
         accessKey: "7Qkpv9W6jhjKazqt8afoJNe1sNMVjbA0",
         video: "3968932",
@@ -63,6 +64,7 @@
     }
 
     function secondVideo() {
+      AnvatoPlayer('p0').destroy();
       AnvatoPlayer('p0').init({
         accessKey: "7Qkpv9W6jhjKazqt8afoJNe1sNMVjbA0",
         video: "3026938",
@@ -78,6 +80,7 @@
     }
 
     function thirdVideo() {
+      AnvatoPlayer('p0').destroy();
       AnvatoPlayer('p0').init({
         accessKey: "7Qkpv9W6jhjKazqt8afoJNe1sNMVjbA0",
         video: "4001182",
@@ -93,6 +96,7 @@
     }
 
     function firstLive() {
+      AnvatoPlayer('p0').destroy();
       AnvatoPlayer('p0').init({
         accessKey: "a4zb3LDaRhzg0d2CXkSqzDWjSLGzqM4g",
         video: "adstGLxOqGeaXgB1",
@@ -108,6 +112,7 @@
     }
 
     function secondLive() {
+      AnvatoPlayer('p0').destroy();
       AnvatoPlayer('p0').init({
         accessKey: "a4zb3LDaRhzg0d2CXkSqzDWjSLGzqM4g",
         video: "adst3MYLNEYnNEOG",
@@ -123,6 +128,7 @@
     }
 
     function thirdLive() {
+      AnvatoPlayer('p0').destroy();
       AnvatoPlayer('p0').init({
         accessKey: "a4zb3LDaRhzg0d2CXkSqzDWjSLGzqM4g",
         video: "adstGgBYdoQENykn",
